@@ -1,6 +1,8 @@
 package com.mrjalal.testrecyclerviewsample;
 
 import android.support.test.espresso.Espresso;
+import android.support.test.espresso.ViewAction;
+import android.support.test.espresso.action.ViewActions;
 import android.support.test.espresso.contrib.RecyclerViewActions;
 import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.rule.ActivityTestRule;
@@ -22,7 +24,8 @@ public class MainActivityTest {
     @Before
     @Test
     public void setUp() throws Exception {
-        Espresso.onView(ViewMatchers.withId(R.id.rv)).perform(RecyclerViewActions.scrollToPosition(20));
+        Espresso.onView(ViewMatchers.withId(R.id.rv)).perform(RecyclerViewActions.scrollToPosition(205));
+//        Espresso.onView(ViewMatchers.withId(R.id.rv)).perform(RecyclerViewActions.actionOnItemAtPosition(20, ViewActions.click()));
     }
 
 }

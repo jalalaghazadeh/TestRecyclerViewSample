@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,16 +45,22 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         notifyDataSetChanged();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder{
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView tv;
         ViewHolder(View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
             tv = itemView.findViewById(R.id.tv);
         }
 
         void onBind(SimpleModel simpleModel) {
             tv.setText(simpleModel.getText());
             tv.setBackgroundColor(simpleModel.getItemColor());
+        }
+
+        @Override
+        public void onClick(View view) {
+            Toast.makeText(view.getContext(), "u are Clicked", Toast.LENGTH_SHORT).show();
         }
     }
 
